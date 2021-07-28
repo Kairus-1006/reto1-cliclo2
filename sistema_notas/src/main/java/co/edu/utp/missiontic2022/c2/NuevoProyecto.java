@@ -14,13 +14,20 @@ public class NuevoProyecto {
     //Metodos
 
     //-->Constructores
-    NuevoProyecto(){
-        this.periodo = 0;
-        this.monto = 0;
-        this.interes = 0;
-        this.interesSimple = 0;
-        this.interesCompuesto = 0;
-        this.compararInversion = 0;
+    NuevoProyecto(int opt){
+
+        if(opt == 1)
+        {
+            this.periodo = 0;
+            this.monto = 0;
+            this.interes = 0;
+            this.interesSimple = 0;
+            this.interesCompuesto = 0;
+            this.compararInversion = 0;
+        }else{
+            this.periodo = 3
+
+        }
     }
     /* NuevoProyecto(int ppPerido, double ppMonto, double ppInteres){
         this.periodo = ppPerido;
@@ -114,7 +121,7 @@ public class NuevoProyecto {
 
 
     public static void main(String[] args) {
-        NuevoProyecto np = new NuevoProyecto();
+        NuevoProyecto np = new NuevoProyecto(0);
         System.out.println(np);
         //np.mostrar();
         System.out.println(np.calcularInteresCompuesto());
