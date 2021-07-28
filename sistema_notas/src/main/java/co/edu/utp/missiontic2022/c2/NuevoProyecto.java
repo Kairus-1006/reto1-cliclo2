@@ -22,39 +22,42 @@ public class NuevoProyecto {
         this.interesCompuesto = 0;
         this.compararInversion = 0;
     }
-    NuevoProyecto(int ppPerido, double ppMonto, double ppInteres){
+    /* NuevoProyecto(int ppPerido, double ppMonto, double ppInteres){
         this.periodo = ppPerido;
         this.monto = ppMonto;
         this.interes = ppInteres;
 
 
-    }
+    } */
     
+    public double compararInversion(int pPeriodo, double pMonto, double pInteres)
+    {
+        this.periodo = pPeriodo;
+        this.monto = pMonto;
+        this.interes = pInteres;
+        
 
+        this.compararInversion = calcularInteresCompuesto() - calcularInteresSimple();
+        return this.compararInversion;
+
+    }
        
     public double calcularInteresSimple()
     {
         this.interesSimple = this.monto * (this.interes / 100) * this.periodo;
-        return interesSimple;
+        return this.interesSimple;
 
     }
 
     public double calcularInteresCompuesto()
     {
 
-        this.interesCompuesto = pMonto *(Math.pow((1 + this.interes),this.periodo))-1;
+        this.interesCompuesto = this.monto *(Math.pow((1 + this.interes),this.periodo))-1;
         return this.interesCompuesto;
 
     }
 
-    public double compararInversion(int pPeriodo, double pMonto, double pInteres)
-    {
-
-        
-        this.compararInversion = calcularInteresCompuesto() - calcularInteresSimple();
-        return compararInversion;
-
-    }
+   
 /*
     public double compararInversion()
     {
@@ -63,14 +66,14 @@ public class NuevoProyecto {
     }
 */
 
-    public void mostrar(){
+   /*  public void mostrar(){
 
         System.out.println("Periodo: "+this.periodo);
         System.out.println("Periodo: "+this.monto);
         System.out.println("Periodo: "+this.interes);
         System.out.println("Periodo: "+this.interesSimple);
         System.out.println("Periodo: "+this.interesCompuesto);
-    }
+    } */
 
 
 
@@ -92,6 +95,7 @@ public class NuevoProyecto {
         return periodo;
     }
 
+    //setters
     public void setInteres(double interes) {
         this.interes = interes;
     }
@@ -101,6 +105,9 @@ public class NuevoProyecto {
     public void setMonto(double monto) {
         this.monto = monto;
     }
+    public void setInteresSimple(double interesSimple) {
+        this.interesSimple = interesSimple;
+    }
 
     
     
@@ -109,7 +116,7 @@ public class NuevoProyecto {
     public static void main(String[] args) {
         NuevoProyecto np = new NuevoProyecto();
         System.out.println(np);
-        np.mostrar();
+        //np.mostrar();
         System.out.println(np.calcularInteresCompuesto());
         System.out.println(np.calcularInteresSimple());
         System.out.println(np.compararInversion(3, 500000, 3));
