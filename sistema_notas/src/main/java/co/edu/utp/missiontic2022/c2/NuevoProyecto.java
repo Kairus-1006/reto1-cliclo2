@@ -26,7 +26,7 @@ public class NuevoProyecto {
    
     public double calcularInteresSimple()
     {
-        double interesSimple = Math.round(this.monto * (0.03) * this.periodo);
+        double interesSimple = Math.round(this.monto * (this.interes/100) * this.periodo);
         return interesSimple;
 
     }
@@ -42,11 +42,9 @@ public class NuevoProyecto {
     public String compararInversion(int pPeriodo, double pMonto, double pInteres)
     {
         String respuesta = "";
-        if(compararInversion() > 0){
-            respuesta = ("es mejor el inter de "+calcularInteresSimple()+"que es simple");
-        }else{
-            respuesta = ("es mejor el inter de "+calcularInteresCompuesto()+"que es compuesto");
-        }     
+       
+        respuesta = String.valueOf(compararInversion());
+       
         return respuesta;
 
         
@@ -57,27 +55,14 @@ public class NuevoProyecto {
     public double compararInversion()
     {
         double compararInversion = 0;
-        compararInversion = calcularInteresCompuesto() - calcularInteresSimple();
+        compararInversion = Math.round(calcularInteresCompuesto() - calcularInteresSimple());
         return compararInversion;
        
     }
        
-    
+        //************getters****************
 
-
-    /*  public void mostrar(){
-
-        System.out.println("Periodo: "+this.periodo);
-        System.out.println("Monto: "+this.monto);
-        System.out.println("Interes: "+this.interes);
-        
-    } 
- */
-
-
-    //getters
-
-    public double getInteres() {
+  /*   public double getInteres() {
         return interes;
     }
     /*public double getInteresCompuesto() {
@@ -85,13 +70,13 @@ public class NuevoProyecto {
     }
     public double getInteresSimple() {
         return interesSimple;
-    } */
+    } 
     public double getMonto() {
         return monto;
     }
     public int getPeriodo() {
         return periodo;
-    }
+    } 
 
     //setters
     public void setInteres(double interes) {
@@ -103,20 +88,18 @@ public class NuevoProyecto {
     public void setMonto(double monto) {
         this.monto = monto;
     }
-    /* public void setInteresSimple(double interesSimple) {
+     public void setInteresSimple(double interesSimple) {
         this.interesSimple = interesSimple;
     } */
 
     
-    
-
 
     public static void main(String[] args) {
-        NuevoProyecto np = new NuevoProyecto(3, 500000, 3);
+        NuevoProyecto np = new NuevoProyecto(6, 10000000, 1.2);
         //np.mostrar();
         //NuevoProyecto np1 = new NuevoProyecto();
         System.out.println("Interes compuesto calculado "+np.calcularInteresCompuesto());
         System.out.println("Interes simple caluculado "+np.calcularInteresSimple());
-        System.out.println(np.compararInversion(3, 500000, 3));
+        System.out.println(np.compararInversion(6, 10000000, 1.2));
     }
 }
