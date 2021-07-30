@@ -44,6 +44,7 @@ public class NuevoProyecto {
         String respuesta = "";
        
         respuesta = String.valueOf(compararInversion());
+        
        
         return respuesta;
 
@@ -54,45 +55,13 @@ public class NuevoProyecto {
 
     public double compararInversion()
     {
-        double compararInversion = 0;
-        compararInversion = Math.round(calcularInteresCompuesto() - calcularInteresSimple());
-        return compararInversion;
+        double diferencia = 0;
+        diferencia = Math.round(calcularInteresCompuesto() - calcularInteresSimple());
+        return diferencia;
        
     }
        
-        //************getters****************
-
-  /*   public double getInteres() {
-        return interes;
-    }
-    /*public double getInteresCompuesto() {
-        return interesCompuesto;
-    }
-    public double getInteresSimple() {
-        return interesSimple;
-    } 
-    public double getMonto() {
-        return monto;
-    }
-    public int getPeriodo() {
-        return periodo;
-    } 
-
-    //setters
-    public void setInteres(double interes) {
-        this.interes = interes;
-    }
-    public void setPeriodo(int periodo) {
-        this.periodo = periodo;
-    }
-    public void setMonto(double monto) {
-        this.monto = monto;
-    }
-     public void setInteresSimple(double interesSimple) {
-        this.interesSimple = interesSimple;
-    } */
-
-    
+     
 
     public static void main(String[] args) {
         NuevoProyecto np = new NuevoProyecto(6, 10000000, 1.2);
