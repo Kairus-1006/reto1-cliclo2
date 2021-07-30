@@ -17,12 +17,14 @@ public class NuevoProyecto {
         this.interes = 0;
     }
 
-    NuevoProyecto(int p1Periodo, double p1Monto, double p1Interes){
-        this.periodo = p1Periodo;
-        this.monto = p1Monto;
-        this.interes = p1Interes;
+    NuevoProyecto(int pPeriodo, double pMonto, double pInteres){
+        this.periodo = pPeriodo;
+        this.monto = pMonto;
+        this.interes = pInteres;
                 
     }
+
+    //Metodos 
    
     public double calcularInteresSimple()
     {
@@ -39,21 +41,20 @@ public class NuevoProyecto {
 
     }
 
-    public String compararInversion(int pPeriodo, double pMonto, double pInteres)
+    public double compararInversion(int pPeriodo, double pMonto, double pInteres)
     {
-        String respuesta = "";
+        double diferencia = 0;
+        this.periodo = pPeriodo;
+        this.monto = pMonto;
+        this.interes = pInteres;
+        diferencia = Math.round(calcularInteresCompuesto() - calcularInteresSimple());
+        return diferencia;
        
-        respuesta = String.valueOf(compararInversion());
-        
-       
-        return respuesta;
-
-        
     } 
 
 
 
-    public double compararInversion()
+    public double compararInversion()//no se pasan datos porque los toma del constructor en los metodos calcularInteresCompuesto y calcularInteresSimple
     {
         double diferencia = 0;
         diferencia = Math.round(calcularInteresCompuesto() - calcularInteresSimple());
@@ -64,11 +65,10 @@ public class NuevoProyecto {
      
 
     public static void main(String[] args) {
-        NuevoProyecto np = new NuevoProyecto(6, 10000000, 1.2);
-        //np.mostrar();
-        //NuevoProyecto np1 = new NuevoProyecto();
+        NuevoProyecto np = new NuevoProyecto(6, 10000000, 1.2);//se pasan datos al constructor de la clase con estos datos trabajan los metodos
+        
         System.out.println("Interes compuesto calculado "+np.calcularInteresCompuesto());
         System.out.println("Interes simple caluculado "+np.calcularInteresSimple());
-        System.out.println(np.compararInversion(6, 10000000, 1.2));
+        System.out.println(np.compararInversion());//no se pasan datos porque ya se pasaron al constructor en la creacion del objeto
     }
 }
